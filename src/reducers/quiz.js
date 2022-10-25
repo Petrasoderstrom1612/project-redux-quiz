@@ -1,13 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit'
+/* import mars from '../images/mars.jpg'
+import venus from '../images/venus.jpg' */
 
 // Change these to your own questions!
 const questions = [
-  { id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 },
-  { id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
+  { id: 1,
+    questionText: 'Which is the brightest comet in the solar system?',
+    options: ['Hayley`s commet', 'Herschel`s commet', 'Ganymed`s commet', 'Ether`s commet'],
+    correctAnswerIndex: 0 },
+  { id: 2,
+    questionText: 'What name was given to the invisible material once thought to occupy all space?',
+    options: ['Black mud', 'Ether', 'Black hole', 'Tenebrosus'],
+    correctAnswerIndex: 1 },
+  { id: 3,
+    questionText: 'What is the definition of black hole?',
+    options: ['An impenetrable area in space that slows down the speed of light to 0', 'A place in space where gravity pulls so much that even light can not get out', 'A place where a star is born', 'An echinoderm energy that orbits faster than the speed of light disabling objects to pass through'],
+    correctAnswerIndex: 1 },
+  { id: 5,
+    questionText: 'Choose which of the following planets is Mercury?',
+    options: [{ src: '../images/venus.jpg' }, { src: '../images/mars.jpg' }
+    ],
+    correctAnswerIndex: 0 }
 ]
 
 const initialState = {
-  questions,
+  questions, /* can also be written questions: questions, */
   answers: [],
   currentQuestionIndex: 0,
   quizOver: false
@@ -33,7 +50,7 @@ export const quiz = createSlice({
      * When dispatching this action, you should pass an object as the payload with `questionId`
      * and `answerIndex` keys. See the readme for more details.
      */
-    submitAnswer: (state, action) => {
+    submitAnswer: (state, action) => { /* : properties inside the object that work as functions */
       const { questionId, answerIndex } = action.payload
       const question = state.questions.find((q) => q.id === questionId)
 
